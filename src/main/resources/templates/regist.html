@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+
+    <!---->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!---->
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="jquery-3.2.1.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="js/bootstrap.bundle.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <form>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3 align="center">注册账号进行中...</h3>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+        <div th:if="${msg} != null" class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"><span th:text="${msg}">没有这个学号的学生，请使用其他学号重新注册</span></div>
+            <div class="col-md-2"></div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-4" ></div>
+        <div class="col-md-4" >
+
+            <div class="form-group">
+                <label for="usr">用户名:</label>
+                <input type="text" class="form-control" id="usr" name="username" placeholder="请输入用户名">
+            </div>
+            <div class="form-group">
+                <label for="pwd">密码:</label>
+                <input type="password" class="form-control" id="pwd" name="password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="authority">请选择注册权限:</label>
+                <select class="form-control" id="authority" name="authority">
+                    <option>1-学生</option>
+                    <option>2-教师</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4" ></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" >
+            <button type="submit" formaction="/regist" formmethod="post" class="btn btn-primary">注册</button>
+        </div>
+        <div class="col-md-4" ></div>
+    </div>
+    </form>
+
+</div>
+
+
+</body>
+</html>

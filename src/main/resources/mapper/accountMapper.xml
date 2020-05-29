@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.system.mapper.AccountMapper">
+
+    <select id="checkUsername" parameterType="String" resultType="int">
+        select count(*) from account where username = #{username}
+    </select>
+
+    <insert id="insertAccount" parameterType="account">
+        insert into account
+        (username, password, authority) values
+        (#{username}, #{password}, #{authority})
+    </insert>
+
+    <select id="checkPassword" parameterType="String" resultType="String">
+        select password from account where username = #{username}
+    </select>
+
+    <select id="getAuthority" parameterType="String" resultType="int">
+        select authority from account where username = #{username}
+    </select>
+
+    <select id="checkIsStuLegal" parameterType="String" resultType="int">
+        select count(*) from student where stuNo = #{username}
+    </select>
+
+
+
+
+</mapper>

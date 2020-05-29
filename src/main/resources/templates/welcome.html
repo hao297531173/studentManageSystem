@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+    <!---->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!---->
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/jquery-3.2.1.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="/js/bootstrap.bundle.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+<!--如果权限是学生的话显示这个container-->
+<div class="container" th:if="${userType}==1">
+    <!--这是顶部信息栏-->
+    <div class="row" th:if="${userType}==1">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <span th:text="${userName}"></span>你好，
+            <span th:if="${userType}==1">你的权限是学生</span>
+
+            <!--这里是面包屑导航-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">查看个人信息</li>
+                <li class="breadcrumb-item"><a th:href="@{/checkPlan/{pageNum}(pageNum=1)}">查看培养计划</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/getScore/{pageNum}(pageNum=1)}">查看成绩单</a></li>
+            </ol>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <!--这里开始显示学生信息-->
+    <div class="row" >
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <span>学号：</span><span th:text="${stu.stuNo}"></span>
+                    </td>
+                    <td>
+                        <span>生日：</span><span th:text="${stu.birthday}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>姓名：</span><span th:text="${stu.stuName}"></span>
+                    </td>
+                    <td>
+                        <span>民族：</span><span th:text="${stu.nat}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>性别：</span>
+                        <span th:if="${stu.sex} == 1">男</span>
+                        <span th:if="${stu.sex} == 2">女</span>
+                    </td>
+                    <td>
+                        <span>班级号：</span><span th:text="${stu.classNo}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>已修学分：</span><span th:text="${sumCredit}"></span>
+                    </td>
+                    <td>
+                        <span>平均分：</span><span th:text="${avg}"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<!--如果权限是教师的话显示这个container-->
+<div class="container" th:if="${userType}==2">
+    <!--这是顶部信息栏-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <span th:text="${userName}"></span>你好，
+            <span th:if="${userType}==2">你的权限是教师</span>
+            <!--这里是面包屑导航-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">添加班级信息</li>
+                <li class="breadcrumb-item"><a href="/toInsertStuInfo">添加学生信息</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/deleteStu/{pageNum}(pageNum=1)}">删除学生信息</a></li>
+            </ol>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <!--这里开始是教师的功能首页-->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <!--错误提醒-->
+            <span th:if="${isExist} != null">该班级号已经存在，不能写入该组数据</span>
+            <span th:if="${success} != null">数据写入成功</span>
+            <form action="/insertClass" method="POST">
+            <table class="table table-bordered">
+                <tr>
+                    <td>班级号：<input type="text" class="form-control"  name="classNo" placeholder="请输入班号"></td>
+                    <td>班级名称：<input type="text" class="form-control"  name="className" placeholder="请输入班级名称"></td>
+                </tr>
+                <tr>
+                    <td>学院：<input type="text" class="form-control"  name="institute" placeholder="请输入班级所属学院"></td>
+                    <td>年级：<input type="text" class="form-control"  name="grade" placeholder="请输入班级所在年级"></td>
+                </tr>
+            </table>
+                <button type="submit"  class="btn btn-primary">插入</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+</body>
+</html>

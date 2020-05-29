@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询培养计划</title>
+
+    <!---->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!---->
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/js/jquery-3.2.1.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="/js/bootstrap.bundle.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+<!--如果权限是学生的话显示这个container-->
+<div class="container" >
+    <!--这是顶部信息栏-->
+    <div class="row" th:if="${userType}==1">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <span th:text="${userName}"></span>你好，
+            <span>你的权限是学生</span>
+
+            <!--这里是面包屑导航-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/getStuInfo">查看个人信息</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/checkPlan/{pageNum}(pageNum=1)}">查看培养计划</a></li>
+                <li class="breadcrumb-item active">查看成绩单</li>
+            </ol>
+
+            <!--这里写选修的课程信息-->
+            <table class="table table-bordered">
+                <tr >
+                    <td>学号</td>
+                    <td>课程号</td>
+                    <td>开课学期</td>
+                    <td>分数</td>
+                    <td>课程名</td>
+                </tr>
+                <tr th:each="list : ${scoreList}">
+                    <td th:text="${list.stuNo}"></td>
+                    <td th:text="${list.courseNo}"></td>
+                    <td th:text="${list.term}"></td>
+                    <td th:text="${list.score}"></td>
+                    <td th:text="${list.courseName}"></td>
+                </tr>
+
+                <!--下面是进行翻页的控件-->
+                <tr>
+                    <td>
+                        <a th:href="@{/getScore/{pageNum}(pageNum=1)}">首页</a>
+                    </td>
+                    <td th:if="${pageNum}!=1">
+                        <a th:href="@{/getScore/{pageNum}(pageNum=${pageNum}-1)}">上一页</a>
+                    </td>
+                    <td th:if="${pageNum}!=${totalPage}">
+                        <a th:href="@{/getScore/{pageNum}(pageNum=${pageNum}+1)}">下一页</a>
+                    </td>
+                    <td>
+                        <a th:href="@{/getScore/{pageNum}(pageNum=${totalPage})}">尾页</a>
+                    </td>
+                    <td>
+                        第<span th:text="${pageNum}"></span>页/<span th:text="${totalPage}"></span>页
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

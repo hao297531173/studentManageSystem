@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>请填入页面标题</title>
+
+    <!---->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!---->
+
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/jquery-3.2.1.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="/js/bootstrap.bundle.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!--如果权限是教师的话显示这个container-->
+    <div class="container" th:if="${userType}==2">
+        <!--这是顶部信息栏-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <span th:text="${userName}"></span>你好，
+                <span th:if="${userType}==2">你的权限是教师</span>
+                <!--这里是面包屑导航-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item "><a href="/insertClass">添加班级信息</a></li>
+                    <li class="breadcrumb-item active">添加学生信息</li>
+                    <li class="breadcrumb-item"><a th:href="@{/deleteStu/{pageNum}(pageNum=1)}">删除学生信息</a></li>
+                </ol>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <!--这里开始是教师的功能首页-->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <span th:if="${isExist}==1">学号重复，写入数据失败</span>
+                <span th:if="${success}==1">写入数据成功</span>
+                <form action="/insertStu" method="POST">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>学号：<input type="text" class="form-control"  name="stuNo" placeholder="请输入学号"></td>
+                            <td>姓名：<input type="text" class="form-control"  name="stuName" placeholder="请输入姓名"></td>
+                        </tr>
+                        <tr>
+                            <td>民族：<input type="text" class="form-control"  name="nat" placeholder="请输入民族"></td>
+                            <td>生日：<input type="text" class="form-control"  name="birthday" placeholder="yyyy-mm-dd"></td>
+                        </tr>
+                        <tr>
+                            <td>性别：
+                                <select class="form-control" name = "sex">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </td>
+                            <td>班号：
+                                <select class="form-control" name = "classNo" >
+                                    <option th:each="list : ${classNo}" th:value="${list}" th:text="${list}"></option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="submit"  class="btn btn-primary">插入</button>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

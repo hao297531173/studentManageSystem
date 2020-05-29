@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.system.mapper.ManageMapper">
+
+    <select id="isExistClassNo" parameterType="String" resultType="int">
+        select count(*) from class where classNo = #{classNo}
+    </select>
+
+    <insert id="insertClassInfo" parameterType="ClassInfo">
+        insert into class (classNo, className, institute, grade, classNum) values
+                          (#{classNo}, #{className}, #{institute}, #{grade}, 0)
+    </insert>
+
+    <select id="isExistStuNo" parameterType="String" resultType="int">
+        select count(*) from student where stuNo = #{stuNo}
+    </select>
+
+    <insert id="insertStudentInfo" parameterType="Student">
+        insert into student (stuNo, stuName, sex, birthday, nat, classNo) values
+                            (#{stuNo}, #{stuName}, #{sex}, #{birthday}, #{nat}, #{classNo})
+    </insert>
+
+    <select id="queryAllClassNo" resultType="String">
+        select classNo from class
+    </select>
+
+    <update id="updateClassNum" parameterType="String">
+        update class set classNum = classNum+1 where classNo = #{classNo}
+    </update>
+
+    <delete id="deleteStuByNo" parameterType="String">
+        delete from student where stuNo = #{stuNo}
+    </delete>
+
+    <update id="updateClassNumM" parameterType="String">
+        update class set classNum = classNum-1 where classNo = #{classNo}
+    </update>
+
+    <delete id="deleteScoreByNo" parameterType="String">
+        delete from score where stuNo = #{stuNo}
+    </delete>
+
+    <select id="queryClassNoByStuNo" parameterType="String" resultType="String">
+        select classNo from student where stuNo = #{stuNo}
+    </select>
+
+    <select id="queryAllStudent" resultType="Student">
+        select * from student
+    </select>
+
+</mapper>

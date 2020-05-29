@@ -1,0 +1,90 @@
+卷 学习 的文件夹 PATH 列表
+卷序列号为 08E2-872D
+D:.
+│  a.txt
+│  
+├─main
+│  ├─java
+│  │  └─com
+│  │      └─learn
+│  │          └─system
+│  │              │  SystemApplication.java
+│  │              │  
+│  │              ├─controller
+│  │              │      AccountController.java
+│  │              │      ManageController.java
+│  │              │      StudentController.java
+│  │              │      
+│  │              ├─mapper
+│  │              │      AccountMapper.java
+│  │              │      ManageMapper.java
+│  │              │      StudentMapper.java
+│  │              │      
+│  │              ├─pojo
+│  │              │      Account.java
+│  │              │      ClassInfo.java
+│  │              │      Course.java
+│  │              │      Score.java
+│  │              │      Student.java
+│  │              │      
+│  │              └─service
+│  │                  │  AccountService.java
+│  │                  │  ManageService.java
+│  │                  │  StudentService.java
+│  │                  │  
+│  │                  └─serviceImpl
+│  │                          AccountServiceImpl.java
+│  │                          ManageServiceImpl.java
+│  │                          StudentServiceImpl.java
+│  │                          
+│  └─resources
+│      │  application.properties
+│      │  
+│      ├─mapper
+│      │      accountMapper.xml
+│      │      manageMapper.xml
+│      │      studentMapper.xml
+│      │      
+│      ├─static
+│      │  ├─css
+│      │  │      bootstrap-grid.css
+│      │  │      bootstrap-grid.css.map
+│      │  │      bootstrap-grid.min.css
+│      │  │      bootstrap-grid.min.css.map
+│      │  │      bootstrap-reboot.css
+│      │  │      bootstrap-reboot.css.map
+│      │  │      bootstrap-reboot.min.css
+│      │  │      bootstrap-reboot.min.css.map
+│      │  │      bootstrap.css
+│      │  │      bootstrap.css.map
+│      │  │      bootstrap.min.css
+│      │  │      bootstrap.min.css.map
+│      │  │      
+│      │  └─js
+│      │          bootstrap.bundle.js
+│      │          bootstrap.bundle.js.map
+│      │          bootstrap.bundle.min.js
+│      │          bootstrap.bundle.min.js.map
+│      │          bootstrap.js
+│      │          bootstrap.js.map
+│      │          bootstrap.min.js
+│      │          bootstrap.min.js.map
+│      │          jquery-3.2.1.js
+│      │          
+│      └─templates
+│              checkCourse.html
+│              checkScore.html
+│              deleteStu.html
+│              index.html
+│              insertStuInfo.html
+│              regist.html
+│              welcome.html
+│              模板.html
+│              
+└─test
+    └─java
+        └─com
+            └─learn
+                └─system
+                        SystemApplicationTests.java
+                        

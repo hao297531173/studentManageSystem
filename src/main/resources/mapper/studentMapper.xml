@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.system.mapper.StudentMapper">
+
+    <select id="selectStu" parameterType="String" resultType="Student">
+        select * from student where stuNo = #{stuNo}
+    </select>
+
+    <select id="selectAllStu" resultType="Student">
+        select * from student
+    </select>
+
+    <select id="calStuSum" parameterType="String" resultType="int">
+        select sum(score) from score where stuNo=#{stuNo}
+    </select>
+
+    <select id="getScoreNum" parameterType="String" resultType="int">
+        select count(*) from score where stuNo = #{stuNo}
+    </select>
+
+    <select id="calStuCredit" parameterType="String" resultType="int">
+        select sum(credit) from course
+        where courseNo in
+        (select DISTINCT courseNo from score where stuNo = #{stuNo})
+    </select>
+
+    <select id="queryAllCourse" parameterType="String" resultType="Course">
+        select * from course where courseNo IN
+        (select courseNo from student where stuNo = #{stuNo})
+    </select>
+
+    <select id="queryAllScore" parameterType="String" resultType="Score">
+        select score.stuNo as stuNo,
+               score.courseNo as courseNo,
+               score.term as term,
+               score.score as score,
+               course.courseName as courseName
+        from score left join course on
+               score.courseNo = course.courseNo
+        where score.stuNo = #{stuNo}
+    </select>
+</mapper>
