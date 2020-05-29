@@ -295,11 +295,11 @@ INSERT INTO account (username, password, authority) VALUES ('gong-001', '666666'
 </mapper>
 ```
 
-![查看个人信息](./image/1.PNG)
+![查看个人信息](https://github.com/hao297531173/studentManageSystem/blob/master/image/1.PNG)
 
-![查看培养计划](./image/2.PNG)
+![查看培养计划](https://github.com/hao297531173/studentManageSystem/blob/master/image/2.PNG)
 
-![查看成绩单](./image/3.png)
+![查看成绩单](https://github.com/hao297531173/studentManageSystem/blob/master/image/3.PNG)
 
 #### 老师可以使用的功能
 
@@ -369,11 +369,11 @@ INSERT INTO account (username, password, authority) VALUES ('gong-001', '666666'
 </mapper>
 ```
 
-![写入班级信息](./image/4.png)
+![写入班级信息](https://github.com/hao297531173/studentManageSystem/blob/master/image/4.PNG)
 
-![写入学生信息](./image/5.png)
+![写入学生信息](https://github.com/hao297531173/studentManageSystem/blob/master/image/5.png)
 
-![删除学生信息](./image/6.png)
+![删除学生信息](https://github.com/hao297531173/studentManageSystem/blob/master/image/6.png)
 
 #### 分页写法
 
@@ -478,90 +478,90 @@ INSERT INTO account (username, password, authority) VALUES ('gong-001', '666666'
 
 #### 项目结构
 
-> ├─main
-> │  ├─java
-> │  │  └─com
-> │  │      └─learn
-> │  │          └─system
-> │  │              │  SystemApplication.java
-> │  │              │  
-> │  │              ├─controller
-> │  │              │      AccountController.java
-> │  │              │      ManageController.java
-> │  │              │      StudentController.java
-> │  │              │      
-> │  │              ├─mapper
-> │  │              │      AccountMapper.java
-> │  │              │      ManageMapper.java
-> │  │              │      StudentMapper.java
-> │  │              │      
-> │  │              ├─pojo
-> │  │              │      Account.java
-> │  │              │      ClassInfo.java
-> │  │              │      Course.java
-> │  │              │      Score.java
-> │  │              │      Student.java
-> │  │              │      
-> │  │              └─service
-> │  │                  │  AccountService.java
-> │  │                  │  ManageService.java
-> │  │                  │  StudentService.java
-> │  │                  │  
-> │  │                  └─serviceImpl
-> │  │                          AccountServiceImpl.java
-> │  │                          ManageServiceImpl.java
-> │  │                          StudentServiceImpl.java
-> │  │                          
-> │  └─resources
-> │      │  application.properties
-> │      │  
-> │      ├─mapper
-> │      │      accountMapper.xml
-> │      │      manageMapper.xml
-> │      │      studentMapper.xml
-> │      │      
-> │      ├─static
-> │      │  ├─css
-> │      │  │      bootstrap-grid.css
-> │      │  │      bootstrap-grid.css.map
-> │      │  │      bootstrap-grid.min.css
-> │      │  │      bootstrap-grid.min.css.map
-> │      │  │      bootstrap-reboot.css
-> │      │  │      bootstrap-reboot.css.map
-> │      │  │      bootstrap-reboot.min.css
-> │      │  │      bootstrap-reboot.min.css.map
-> │      │  │      bootstrap.css
-> │      │  │      bootstrap.css.map
-> │      │  │      bootstrap.min.css
-> │      │  │      bootstrap.min.css.map
-> │      │  │      
-> │      │  └─js
-> │      │          bootstrap.bundle.js
-> │      │          bootstrap.bundle.js.map
-> │      │          bootstrap.bundle.min.js
-> │      │          bootstrap.bundle.min.js.map
-> │      │          bootstrap.js
-> │      │          bootstrap.js.map
-> │      │          bootstrap.min.js
-> │      │          bootstrap.min.js.map
-> │      │          jquery-3.2.1.js
-> │      │          
-> │      └─templates
-> │              checkCourse.html
-> │              checkScore.html
-> │              deleteStu.html
-> │              index.html
-> │              insertStuInfo.html
-> │              regist.html
-> │              welcome.html
-> │              模板.html
-> │              
-> └─test
->     └─java
->         └─com
->             └─learn
->                 └─system
->                         SystemApplicationTests.java
+ ├─main
+ │  ├─java
+ │  │  └─com
+ │  │      └─learn
+ │  │          └─system
+ │  │              │  SystemApplication.java
+ │  │              │  
+ │  │              ├─controller
+ │  │              │      AccountController.java
+ │  │              │      ManageController.java
+ │  │              │      StudentController.java
+ │  │              │      
+ │  │              ├─mapper
+ │  │              │      AccountMapper.java
+ │  │              │      ManageMapper.java
+ │  │              │      StudentMapper.java
+ │  │              │      
+ │  │              ├─pojo
+ │  │              │      Account.java
+ │  │              │      ClassInfo.java
+ │  │              │      Course.java
+ │  │              │      Score.java
+ │  │              │      Student.java
+ │  │              │      
+ │  │              └─service
+ │  │                  │  AccountService.java
+ │  │                  │  ManageService.java
+ │  │                  │  StudentService.java
+ │  │                  │  
+ │  │                  └─serviceImpl
+ │  │                          AccountServiceImpl.java
+ │  │                          ManageServiceImpl.java
+ │  │                          StudentServiceImpl.java
+ │  │                          
+ │  └─resources
+ │      │  application.properties
+ │      │  
+ │      ├─mapper
+ │      │      accountMapper.xml
+ │      │      manageMapper.xml
+ │      │      studentMapper.xml
+ │      │      
+ │      ├─static
+ │      │  ├─css
+ │      │  │      bootstrap-grid.css
+ │      │  │      bootstrap-grid.css.map
+ │      │  │      bootstrap-grid.min.css
+ │      │  │      bootstrap-grid.min.css.map
+ │      │  │      bootstrap-reboot.css
+ │      │  │      bootstrap-reboot.css.map
+ │      │  │      bootstrap-reboot.min.css
+ │      │  │      bootstrap-reboot.min.css.map
+ │      │  │      bootstrap.css
+ │      │  │      bootstrap.css.map
+ │      │  │      bootstrap.min.css
+ │      │  │      bootstrap.min.css.map
+ │      │  │      
+ │      │  └─js
+ │      │          bootstrap.bundle.js
+ │      │          bootstrap.bundle.js.map
+ │      │          bootstrap.bundle.min.js
+ │      │          bootstrap.bundle.min.js.map
+ │      │          bootstrap.js
+ │      │          bootstrap.js.map
+ │      │          bootstrap.min.js
+ │      │          bootstrap.min.js.map
+ │      │          jquery-3.2.1.js
+ │      │          
+ │      └─templates
+ │              checkCourse.html
+ │              checkScore.html
+ │              deleteStu.html
+ │              index.html
+ │              insertStuInfo.html
+ │              regist.html
+ │              welcome.html
+ │              模板.html
+ │              
+ └─test
+     └─java
+         └─com
+             └─learn
+                 └─system
+                         SystemApplicationTests.java
 
 #### 控制器代码
 
